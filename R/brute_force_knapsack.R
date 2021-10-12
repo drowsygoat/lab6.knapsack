@@ -24,3 +24,15 @@ brute_force_knapsack <- function(x,W){
                     "elements" = best_comb))
 
 }
+# test.function <- function(){
+#         start <-Sys.time()
+#         dynamic_knapsack(x = test_knapsack[1:16,], W = 3500)
+#         end <-Sys.time()
+#         return(end-start)
+# }
+#
+# mean(replicate(10, test.function()))
+
+# How much time does it takes to run the algorithm for n = 16 objects?
+# > mean(replicate(10, test.function()))
+# [1] 0.105761
