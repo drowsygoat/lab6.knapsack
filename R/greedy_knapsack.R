@@ -4,6 +4,9 @@
 #' @source \url{https://en.wikipedia.org/wiki/Knapsack_problem}
 #' @export
 greedy_knapsack <- function(x,W){
+        stopifnot("x must be a data frame with columns named v and w" = is.data.frame(x) & colnames(x) == c("w", "v"))
+        stopifnot("all values in x must be positive" = (which(x$w < 0) == TRUE) == 0 & (which(x$v < 0) == TRUE) == 0)
+        stopifnot("W must be positive integer" = W/1==W & W >= 0)
         ord <- order(x$w/x$v) # order of irems in sorted knapsack
         ordered_ks <- x[order(x$w/x$v), ] # sorted knapsack
         n <- nrow(ordered_ks)
@@ -19,7 +22,7 @@ greedy_knapsack <- function(x,W){
                         # print(paste("i..",i))
                 if (cw_1 + ordered_ks$w[i] > W){ # if statement to break when knapsack is full
                         # print("Knapsack Full - Solution 1")
-                        last <- i # last item that fits in the current knapsack, this item excluded if we want later to include the first item that does not fit, see next for loop
+                        last <- i # last item that fits in the current knapsack, this item is excluded if we want later to include the first item that does not fit, see next for loop
                         break
                 }
                 cw_1 <- cw_1 + ordered_ks$w[i]

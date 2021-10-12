@@ -6,6 +6,9 @@
 #'@export
 
 brute_force_knapsack <- function(x,W){
+        stopifnot("x must be a data frame with columns named v and w" = is.data.frame(x) & colnames(x) == c("w", "v"))
+        stopifnot("all values in x must be positive" = (which(x$w < 0) == TRUE) == 0 & (which(x$v < 0) == TRUE) == 0)
+        stopifnot("W must be positive integer" = W/1==W & W >= 0)
         best_val <- 0
         best_comb <- vector()
         size <- nrow(x)

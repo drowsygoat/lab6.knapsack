@@ -15,3 +15,4 @@ Suggests:
 Maintainer: Lech Kaczmarczyk <lech.kaczmarczyk@liu.se>
             Elis Carlberg Larsson <elis.carlberg.larsson@liu.se>
 License: LGPL (>= 3)
+Config/testthat/edition: 3

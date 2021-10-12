@@ -6,6 +6,10 @@
 #'@export
 
 dynamic_knapsack <- function(x,W){
+        stopifnot("x must be a data frame with columns named v and w" = is.data.frame(x) & colnames(x) == c("w", "v"))
+        stopifnot("all values in x must be positive" = (which(x$w < 0) == TRUE) == 0 & (which(x$v < 0) == TRUE) == 0)
+        stopifnot("W must be positive integer" = W/1==W & W >= 0)
+
         n <- nrow(x)+1
         K <- matrix(0, ncol = W+1, nrow = n)
         for (j in 1:W+1){
