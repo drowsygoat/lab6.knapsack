@@ -1,5 +1,11 @@
-dynamic_knapsack <-
-function(x,W){
+
+#'@title Dynamic Programming Knapsack
+#'@param W Knapsack size
+#'@param x A dataframe containing objects to be put in the knapsack, must contain two variables: v and w
+#'@source \url{https://en.wikipedia.org/wiki/Knapsack_problem}
+#'@export
+
+dynamic_knapsack <- function(x,W){
         n <- nrow(x)+1
         K <- matrix(0, ncol = W+1, nrow = n)
         for (j in 1:W+1){
@@ -34,3 +40,5 @@ function(x,W){
         return(list("value" = K[n,W+1],
                     "elements" = elements-1))
 }
+
+# dynamic_knapsack(x = knapsack_objects[1:800,], W = 3500)

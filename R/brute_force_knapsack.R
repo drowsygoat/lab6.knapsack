@@ -1,5 +1,11 @@
-brute_force_knapsack <-
-function(x,W){
+
+#'@title Brute Force Knapsack
+#'@param W Knapsack size
+#'@param x A dataframe containing objects to be put in the knapsack, must contain two variables: v and w
+#'@source \url{https://en.wikipedia.org/wiki/Knapsack_problem}
+#'@export
+
+brute_force_knapsack <- function(x,W){
         best_val <- 0
         best_comb <- vector()
         size <- nrow(x)

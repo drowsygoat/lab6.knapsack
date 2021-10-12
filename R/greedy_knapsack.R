@@ -1,5 +1,9 @@
-greedy_knapsack <-
-function(x,W){
+#' Greedy Algorithm Knapsack
+#' @param W Knapsack size
+#' @param x A dataframe containing objects to be put in the knapsack, must contain two variables: v and w
+#' @source \url{https://en.wikipedia.org/wiki/Knapsack_problem}
+#' @export
+greedy_knapsack <- function(x,W){
         ord <- order(x$w/x$v) # order of irems in sorted knapsack
         ordered_ks <- x[order(x$w/x$v), ] # sorted knapsack
         n <- nrow(ordered_ks)

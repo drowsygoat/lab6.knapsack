@@ -12,7 +12,6 @@ RoxygenNote: 7.1.1
 LazyData: true
 Suggests: 
     testthat (>= 3.0.0)
-    Config/testthat/edition: 3
 Maintainer: Lech Kaczmarczyk <lech.kaczmarczyk@liu.se>
             Elis Carlberg Larsson <elis.carlberg.larsson@liu.se>
 License: LGPL (>= 3)
