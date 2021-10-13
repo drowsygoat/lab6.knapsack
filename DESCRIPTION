@@ -7,11 +7,12 @@ Date: 2021-09-07
 Author: person("Lech", "Kaczmarczyk", email = "lech.kaczmarczyk@liu.se", role = "aut") person("Elis", "Carlberg Larsson", email = "elis.carlberg.larsson@liu.se", role = "aut")
 Description: Solutions to Lab 6 in Advanced R programming (73A94) at Linkoping University fall 2021. The package solves Knapsack problem in three ways: brute force, dynamic programming and greedy approximation. 
 Depends:
-    R (>= 2.10), usethis
+    R (>= 2.10), gtools
 RoxygenNote: 7.1.1
 LazyData: true
 Suggests: 
     testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Maintainer: Lech Kaczmarczyk <lech.kaczmarczyk@liu.se>
             Elis Carlberg Larsson <elis.carlberg.larsson@liu.se>
 License: LGPL (>= 3)
