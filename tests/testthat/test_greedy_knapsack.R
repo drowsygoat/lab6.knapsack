@@ -9,12 +9,12 @@ knapsack_objects <- data.frame(
         v=runif(n = n, 0, 10000)
 )
 
-test_that("Correct object is returned", {
+test_that("Correct object is returned.", {
         expect_silent(gk <- greedy_knapsack(x = knapsack_objects[1:8,], W = 3500))
         expect_named(gk, c("value", "elements"))
 })
 
-test_that("functions rejects errounous input.", {
+test_that("Functions rejects errounous input.", {
         expect_error(greedy_knapsack("hej", 3500))
         expect_error(greedy_knapsack(x = knapsack_objects[1:8,], W = -3500))
 })
