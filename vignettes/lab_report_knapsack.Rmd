@@ -1,0 +1,80 @@
+---
+title: "Lab Report Knapsack"
+author: "Lech Kaczmarczyk and Elis Carlberg Larsson"
+abstract: >
+  This package solves knapsack problem in three different ways.
+  
+  Package version: `r packageVersion("lab6.knapsack")`
+output: 
+  rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Lab Report Knapsack}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(lab6.knapsack)
+```
+---
+## Brute Force Knapsack
+**Question:** How much time does it takes to run the algorithm for n = 16 objects?
+**Answer:** Initially (prior to implementin paralelization), it took 0.105761s.
+We later compared the performance of the final algorithm with paralelization (`parallel = TRUE`) and without paralelization (`parallel = FALSE`). Results below:
+
+```
+# test.function.normal <- function(){
+#         start <-Sys.time()
+#         brute_force_knapsack(x = test_knapsack[1:24,], W = 3500, parallel = FALSE)
+#         end <-Sys.time()
+#         return(end-start)
+# }
+#
+# test.function.parallel <- function(){
+#         start <-Sys.time()
+#         brute_force_knapsack(x = test_knapsack[1:24,], W = 3500, parallel = TRUE)
+#         end <-Sys.time()
+#         return(end-start)
+# }
+
+# > print(paste("24 objects without parallelization takes", mean(replicate(3, test.function.normal()))))
+# [1] "24 objects without parallelization takes 2.08253846168518" (minutes)
+# > print(paste("24 objects with parallelization takes", mean(replicate(3, test.function.parallel()))))
+# [1] "24 objects with parallelization takes 31.5325496196747" (seconds)
+```
+**Answer:** Parelelization led to approx. 4x improvement in the function performace for n = 24 objects.
+
+
+## Greedy Knapsack
+**Question:** How much time does it takes to run the greedy algorithm for n = 1000000 objects?
+
+```
+# RNGversion(min(as.character(getRversion()),"3.5.3"))
+# set.seed(42, kind = "Mersenne-Twister", normal.kind = "Inversion")
+# ##old sampler used for backward compatibility
+# ## suppressWarnings() can be used so that the above warning is not displayed set.seed(42, kind = "Mersenne-Twister", normal.kind = "Inversion")
+# n <- 1000000
+# knapsack_1000000 <-
+#         data.frame(
+#                 w=sample(1:4000, size = n, replace = TRUE),
+#                 v=runif(n = n, 0, 100000)
+#         )
+#
+# test.function <- function(){
+#         start <-Sys.time()
+#         greedy_knapsack(x = knapsack_1000000, W = 3500)
+#         end <-Sys.time()
+#         return(end-start)
+# }
+#
+# mean(replicate(10, test.function()))
+# [1] 0.1728671
+```
+**Answer:** It takes approx. 0.17s to run the greedy algorithm for n = 1000000 objects.

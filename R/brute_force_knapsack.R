@@ -56,27 +56,3 @@ brute_force_knapsack <- function(x,W,parallel=FALSE){
                             "elements" = best_comb))
         }
 }
-#
-# test.function.normal <- function(){
-#         start <-Sys.time()
-#         brute_force_knapsack(x = test_knapsack[1:24,], W = 3500, parallel = FALSE)
-#         end <-Sys.time()
-#         return(end-start)
-# }
-#
-# test.function.parallel <- function(){
-#         start <-Sys.time()
-#         brute_force_knapsack(x = test_knapsack[1:24,], W = 3500, parallel = TRUE)
-#         end <-Sys.time()
-#         return(end-start)
-# }
-
-# > print(paste("24 objects without parallelization takes", mean(replicate(3, test.function.normal()))))
-# [1] "24 objects without parallelization takes 2.08253846168518" (minutes)
-# > print(paste("24 objects with parallelization takes", mean(replicate(3, test.function.parallel()))))
-# [1] "24 objects with parallelization takes 31.5325496196747" (seconds)
-
-# How much time does it takes to run the algorithm for n = 16 objects?
-# > mean(replicate(10, test.function()))
-# [1] 0.105761
-# Took this much without data validation and paralelization (if statement)

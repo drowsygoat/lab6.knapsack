@@ -7,12 +7,14 @@
 \url{https://en.wikipedia.org/wiki/Knapsack_problem}
 }
 \usage{
-brute_force_knapsack(x, W)
+brute_force_knapsack(x, W, parallel = FALSE)
 }
 \arguments{
 \item{x}{A dataframe containing objects to be put in the knapsack, must contain two variables: v and w}
 
 \item{W}{Knapsack size}
+
+\item{parallel}{If to use multicore}
 }
 \description{
 Brute Force Knapsack
